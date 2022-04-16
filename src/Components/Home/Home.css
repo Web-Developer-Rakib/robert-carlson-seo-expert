@@ -1,12 +1,12 @@
 .name-color {
-  color: rgba(255, 128, 166);
+  color: rgb(45, 158, 120);
 }
 .hero-section {
   margin-top: 130px;
 }
 .hero-img {
   border-radius: 50%;
-  border: 5px solid rgba(255, 128, 166);
+  border: 5px solid rgb(45, 158, 120);
 }
 .hero-left {
   width: 500px;
