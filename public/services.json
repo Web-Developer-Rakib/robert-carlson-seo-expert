@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "image": "./serviceImg/1.png",
+    "price": 300,
+    "name": "Quality Backlinks",
+    "description": "You will get High-Quality Backlinks, Off-Page SEO, Website SEO, SEO Keyword Research, SEO Ranking, Link Building, SEO Traffic."
+  },
+  {
+    "id": 2,
+    "image": "./serviceImg/2.png",
+    "price": 500,
+    "name": "Advanced On-Page SEO",
+    "description": "I will Analyze your H1-H6 tags with URL optimization. Advanced structured data optimization included. Also  I will write a professional Meta description length of 450-550 characters"
+  },
+  {
+    "id": 3,
+    "image": "./serviceImg/3.png",
+    "price": 350,
+    "name": "Comprehensive Keyword Research",
+    "description": "I am having 10 years of experience in SEO with expertise in optimizing websites developed in varied platforms. My process is completely white hat and adheres to the best Technical SEO and search engine optimization practice as laid by google from time to time, giving you long-term sustainable results."
+  },
+  {
+    "id": 4,
+    "image": "./serviceImg/4.png",
+    "price": 400,
+    "name": "Fix SEO On-Page Errors",
+    "description": "On-page SEO aids search engines in analyzing your website and its associated material in order to determine whether a searcher's query is relevant to your site. "
+  }
+]
