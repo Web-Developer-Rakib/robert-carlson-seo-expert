@@ -8,7 +8,7 @@ import GoogleIcon from "../../Images/google.jpg";
 import "./Register.css";
 
 const Register = () => {
-  const { userDetails, SetUseDetails, googleErrorTxt, handleGoogleSignIn } =
+  const { userDetails, setUseDetails, googleErrorTxt, handleGoogleSignIn } =
     UseFirebase();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +26,7 @@ const Register = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        SetUseDetails(user);
+        setUseDetails(user);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -42,7 +42,7 @@ const Register = () => {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
-            onBlur={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="Enter your email"
             required
@@ -51,7 +51,7 @@ const Register = () => {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
-            onBlur={(e) => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Enter your password"
             required
@@ -60,7 +60,7 @@ const Register = () => {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Confirm password</Form.Label>
           <Form.Control
-            onBlur={(e) => setConfirmPassword(e.target.value)}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             type="password"
             placeholder="Confirm your password"
             required

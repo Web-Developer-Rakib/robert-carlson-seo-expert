@@ -1,23 +1,38 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../Firebase_init";
 import UseFirebase from "../../Hooks/UseFirebase";
 import GoogleIcon from "../../Images/google.jpg";
 import "./Login.css";
 
 const Login = () => {
-  const { userDetails, SetUseDetails, handleGoogleSignIn } = UseFirebase();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [errorTxt, setErrorTxt] = useState();
-  const handleSignIn = (e) => {
+  const {
+    userDetails,
+    setUseDetails,
+    googleErrorTxt,
+    handleGoogleSignIn,
+    handleSignOut,
+    signOutTxt,
+    email,
+    setEmail,
+    password,
+    setPassword,
+  } = UseFirebase();
+
+  const [errorTxt, setErrorTxt] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const handleLogin = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        SetUseDetails(user);
+        setUseDetails(user);
+        console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -53,12 +68,12 @@ const Login = () => {
         <b>
           New to this site? <Link to="/register">Register</Link>
         </b>
-        <h3>{userDetails?.email}</h3>
+
         <div className="d-flex flex-column align-items-center">
           <button
             className="login-btn mt-3 mx-auto"
             type="submit"
-            onClick={handleSignIn}
+            onClick={handleLogin}
           >
             LOGIN
           </button>
@@ -70,10 +85,11 @@ const Login = () => {
         </div>
       </Form>
       <div className="d-flex justify-content-center">
-        <button className="login-with-google" onClick={handleGoogleSignIn}>
+        <button className="login-with-google">
           {" "}
           <img src={GoogleIcon} height={30} alt="" /> LOGIN IN WITH GOOGLE
         </button>
+        <h2>{errorTxt}</h2>
       </div>
     </div>
   );

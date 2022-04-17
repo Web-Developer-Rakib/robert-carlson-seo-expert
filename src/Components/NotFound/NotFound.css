@@ -1,0 +1,9 @@
+.not-found {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.not-found-txt {
+  color: rgb(219, 37, 37);
+}

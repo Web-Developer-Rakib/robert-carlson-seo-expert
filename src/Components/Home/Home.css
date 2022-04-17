@@ -21,4 +21,8 @@
   .services {
     grid-template-columns: 1fr;
   }
+  .hero-img {
+    height: 300px;
+    width: 300px;
+  }
 }

@@ -33,3 +33,9 @@
 .checkout-btn:hover {
   width: 100%;
 }
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 400px;
+    height: 610px;
+  }
+}

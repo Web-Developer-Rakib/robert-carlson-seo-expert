@@ -8,22 +8,24 @@ import { useState } from "react";
 import auth from "../Firebase_init";
 
 const UseFirebase = () => {
-  const [userDetails, SetUseDetails] = useState({});
-  const [googleErrorTxt, SetGoogleErrorTxt] = useState("");
+  const [userDetails, setUseDetails] = useState({});
+  const [googleErrorTxt, setGoogleErrorTxt] = useState("");
   const [signOutTxt, setSignOutTxt] = useState("");
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const handleGoogleSignIn = () => {
     const googleProvider = new GoogleAuthProvider();
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
-        SetUseDetails(user);
+        setUseDetails(user);
       })
       .catch((error) => {
-        SetGoogleErrorTxt(error.message);
+        setGoogleErrorTxt(error.message);
       });
   };
   const handleSignOut = () => {
+    console.log("Signout");
     signOut(auth)
       .then(() => {
         setSignOutTxt("Signout successfull.");
@@ -33,16 +35,20 @@ const UseFirebase = () => {
       });
   };
   onAuthStateChanged(auth, (user) => {
-    SetUseDetails(user);
+    setUseDetails(user);
   });
 
   return {
     userDetails,
-    SetUseDetails,
+    setUseDetails,
     googleErrorTxt,
     handleGoogleSignIn,
     handleSignOut,
     signOutTxt,
+    email,
+    setEmail,
+    password,
+    setPassword,
   };
 };
 

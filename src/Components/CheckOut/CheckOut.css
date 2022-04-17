@@ -1,0 +1,9 @@
+.checkout {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkout-txt {
+  color: rgb(16, 172, 120);
+}
