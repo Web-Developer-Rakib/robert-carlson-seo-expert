@@ -1,0 +1,32 @@
+.card {
+  width: 500px;
+  border: 2px solid #2d9e78;
+  height: 700px;
+  padding: 20px;
+  position: relative;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.card img {
+  border-radius: 10px;
+}
+.checkout-btn {
+  position: absolute;
+  bottom: 0;
+  font-weight: 700;
+  background: linear-gradient(
+    0deg,
+    rgba(45, 158, 120, 1) 0%,
+    rgba(127, 255, 212, 1) 100%
+  );
+  width: 90%;
+  margin: auto;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  transition: 0.75s ease;
+}
+.checkout-btn:hover {
+  width: 100%;
+}

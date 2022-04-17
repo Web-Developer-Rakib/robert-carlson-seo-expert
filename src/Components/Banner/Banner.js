@@ -38,7 +38,7 @@ const Banner = () => {
           <Carousel.Caption>
             <h3>Guest Post</h3>
             <p>
-              DA 94 | DR 91 | Traffic 19 Million | TF 75 | Domain Age 23 Year
+              DA 94 | DR 91 | Traffic 19 Million | TF 75 | Domain Age 23 Year.
             </p>
           </Carousel.Caption>
         </Carousel.Item>

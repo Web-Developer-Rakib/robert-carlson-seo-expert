@@ -1,6 +1,7 @@
 import React from "react";
 import HeroImg from "../../Images/carlson.jpg";
 import Banner from "../Banner/Banner";
+import Card from "../Card/Card";
 import "./Home.css";
 
 const Home = () => {
@@ -35,8 +36,8 @@ const Home = () => {
       </section>
       <section>
         <h2 className="text-center my-5">Services</h2>
-        <div className="">
-          <h2>Card</h2>
+        <div className="mx-5">
+          <Card></Card>
         </div>
       </section>
     </div>
