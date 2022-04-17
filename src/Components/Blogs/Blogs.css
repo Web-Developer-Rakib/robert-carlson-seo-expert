@@ -1,0 +1,11 @@
+.qna-section {
+  padding: 20px;
+  margin-top: 120px;
+}
+.qna {
+  border: 2px solid rgb(21, 197, 159);
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

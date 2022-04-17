@@ -4,15 +4,13 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import auth from "../Firebase_init";
 
 const UseFirebase = () => {
   const [userDetails, setUseDetails] = useState({});
   const [googleErrorTxt, setGoogleErrorTxt] = useState("");
   const [signOutTxt, setSignOutTxt] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const handleGoogleSignIn = () => {
     const googleProvider = new GoogleAuthProvider();
     signInWithPopup(auth, googleProvider)
@@ -34,9 +32,12 @@ const UseFirebase = () => {
         setSignOutTxt(error.message);
       });
   };
-  onAuthStateChanged(auth, (user) => {
-    setUseDetails(user);
-  });
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      setUseDetails(user);
+    });
+  }, []);
 
   return {
     userDetails,
@@ -45,10 +46,6 @@ const UseFirebase = () => {
     handleGoogleSignIn,
     handleSignOut,
     signOutTxt,
-    email,
-    setEmail,
-    password,
-    setPassword,
   };
 };
 

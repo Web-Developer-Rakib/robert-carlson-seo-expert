@@ -8,19 +8,9 @@ import GoogleIcon from "../../Images/google.jpg";
 import "./Login.css";
 
 const Login = () => {
-  const {
-    userDetails,
-    setUseDetails,
-    googleErrorTxt,
-    handleGoogleSignIn,
-    handleSignOut,
-    signOutTxt,
-    email,
-    setEmail,
-    password,
-    setPassword,
-  } = UseFirebase();
-
+  const { setUseDetails, handleGoogleSignIn } = UseFirebase();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errorTxt, setErrorTxt] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,7 +21,6 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         setUseDetails(user);
-        console.log(user);
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -85,7 +74,7 @@ const Login = () => {
         </div>
       </Form>
       <div className="d-flex justify-content-center">
-        <button className="login-with-google">
+        <button className="login-with-google" onClick={handleGoogleSignIn}>
           {" "}
           <img src={GoogleIcon} height={30} alt="" /> LOGIN IN WITH GOOGLE
         </button>
