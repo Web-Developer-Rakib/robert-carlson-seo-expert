@@ -8,7 +8,7 @@ import GoogleIcon from "../../Images/google.jpg";
 import "./Register.css";
 
 const Register = () => {
-  const { UserDetails, SetUseDetails, googleErrorTxt, handleGoogleSignIn } =
+  const { userDetails, SetUseDetails, googleErrorTxt, handleGoogleSignIn } =
     UseFirebase();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,6 +21,7 @@ const Register = () => {
     e.preventDefault();
     if (password !== confirmPassword) {
       setPassError("Password did not matched. Please recheck.");
+      return;
     }
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -77,7 +78,7 @@ const Register = () => {
         </b>
         <h5 className="text-danger my-3">{passError}</h5>
         <h2>{errorTxt}</h2>
-        <h2>{UserDetails?.email}</h2>
+        <h2>{userDetails?.email}</h2>
         <div className="d-flex flex-column align-items-center">
           <button
             type="submit"

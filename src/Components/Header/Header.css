@@ -5,6 +5,22 @@
   font-weight: 700;
   font-size: 25px;
 }
+.signout-btn {
+  font-weight: 700;
+  background: linear-gradient(
+    0deg,
+    rgb(158, 45, 45) 0%,
+    rgb(255, 127, 127) 100%
+  );
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  transition: 0.75s ease;
+  color: rgb(255, 255, 255);
+}
+.signout-btn:hover {
+  transform: scale(110%);
+}
 .active {
   border: 2px solid #2d9e78;
 }

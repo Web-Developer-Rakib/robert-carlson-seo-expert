@@ -1,12 +1,18 @@
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
 import { useState } from "react";
+import auth from "../Firebase_init";
 
 const UseFirebase = () => {
-  const [UserDetails, SetUseDetails] = useState({});
+  const [userDetails, SetUseDetails] = useState({});
   const [googleErrorTxt, SetGoogleErrorTxt] = useState("");
+  const [signOutTxt, setSignOutTxt] = useState("");
 
   const handleGoogleSignIn = () => {
-    const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     signInWithPopup(auth, googleProvider)
       .then((result) => {
@@ -17,12 +23,26 @@ const UseFirebase = () => {
         SetGoogleErrorTxt(error.message);
       });
   };
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        setSignOutTxt("Signout successfull.");
+      })
+      .catch((error) => {
+        setSignOutTxt(error.message);
+      });
+  };
+  onAuthStateChanged(auth, (user) => {
+    SetUseDetails(user);
+  });
 
   return {
-    UserDetails,
+    userDetails,
     SetUseDetails,
     googleErrorTxt,
     handleGoogleSignIn,
+    handleSignOut,
+    signOutTxt,
   };
 };
 
