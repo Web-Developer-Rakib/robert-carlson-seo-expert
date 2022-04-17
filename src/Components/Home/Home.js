@@ -1,10 +1,12 @@
 import React from "react";
+import useFetch from "../../Hooks/useFetch";
 import HeroImg from "../../Images/carlson.jpg";
 import Banner from "../Banner/Banner";
 import Card from "../Card/Card";
 import "./Home.css";
 
 const Home = () => {
+  const [services] = useFetch();
   return (
     <div className="home-top">
       <Banner></Banner>
@@ -36,8 +38,12 @@ const Home = () => {
       </section>
       <section>
         <h2 className="text-center my-5">Services</h2>
-        <div className="mx-5">
-          <Card></Card>
+        <div className="d-flex justify-content-center">
+          <div className="mx-5 services">
+            {services.map((service) => (
+              <Card service={service}></Card>
+            ))}
+          </div>
         </div>
       </section>
     </div>
