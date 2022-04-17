@@ -8,7 +8,8 @@ import GoogleIcon from "../../Images/google.jpg";
 import "./Register.css";
 
 const Register = () => {
-  const { UserDetails, SetUseDetails } = UseFirebase();
+  const { UserDetails, SetUseDetails, googleErrorTxt, handleGoogleSignIn } =
+    UseFirebase();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -90,12 +91,14 @@ const Register = () => {
             <h3 className="my-4 mx-3">OR</h3>
             <div className="register-line"></div>
           </div>
-          <button className="register-with-google">
-            {" "}
-            <img src={GoogleIcon} height={30} alt="" /> REGISTER IN WITH GOOGLE
-          </button>
         </div>
       </Form>
+      <div className="d-flex justify-content-center">
+        <button className="register-with-google" onClick={handleGoogleSignIn}>
+          {" "}
+          <img src={GoogleIcon} height={30} alt="" /> REGISTER IN WITH GOOGLE
+        </button>
+      </div>
     </div>
   );
 };
