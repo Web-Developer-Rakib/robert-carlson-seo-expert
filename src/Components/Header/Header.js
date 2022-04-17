@@ -1,5 +1,7 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import Logo from "../../Images/logo.png";
 import "./Header.css";
 
@@ -12,21 +14,35 @@ const Header = () => {
       variant="light"
     >
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand as={HashLink} to="/#home">
           <img src={Logo} alt="" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#overview">Overview</Nav.Link>
-            <Nav.Link href="#services">Services</Nav.Link>
-            <Nav.Link href="#blogs">Blogs</Nav.Link>
-            <Nav.Link href="#about-me">About me</Nav.Link>
+            <Nav.Link as={NavLink} to="/">
+              Home
+            </Nav.Link>
+            <Nav.Link as={HashLink} to="/#overview">
+              Overview
+            </Nav.Link>
+            <Nav.Link as={HashLink} to="/#services">
+              Services
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/blogs">
+              Blogs
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/about-me">
+              About me
+            </Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#login">Login</Nav.Link>
-            <Nav.Link href="#register">Register</Nav.Link>
+            <Nav.Link as={NavLink} to="/login">
+              Login
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/register">
+              Register
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

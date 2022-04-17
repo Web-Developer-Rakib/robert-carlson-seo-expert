@@ -1,5 +1,6 @@
 import React from "react";
 import { Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import GoogleIcon from "../../Images/google.jpg";
 import "./Register.css";
 
@@ -31,6 +32,9 @@ const Register = () => {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Accept terms and condition." />
         </Form.Group>
+        <b>
+          Already have an account? <Link to="/login">Login</Link>
+        </b>
         <div className="d-flex flex-column align-items-center">
           <button className="register-btn mt-3 mx-auto" type="submit">
             REGISTER

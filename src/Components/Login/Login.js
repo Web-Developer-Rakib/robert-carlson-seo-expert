@@ -1,5 +1,6 @@
 import React from "react";
 import { Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import GoogleIcon from "../../Images/google.jpg";
 import "./Login.css";
 
@@ -20,6 +21,9 @@ const Login = () => {
             required
           />
         </Form.Group>
+        <b>
+          New to this site? <Link to="/register">Register</Link>
+        </b>
         <div className="d-flex flex-column align-items-center">
           <button className="login-btn mt-3 mx-auto" type="submit">
             LOGIN

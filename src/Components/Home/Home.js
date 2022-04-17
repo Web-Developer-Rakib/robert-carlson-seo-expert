@@ -8,9 +8,9 @@ import "./Home.css";
 const Home = () => {
   const [services] = useFetch();
   return (
-    <div className="home-top">
+    <div className="home-top" id="home">
       <Banner></Banner>
-      <section>
+      <section id="overview">
         <h2 className="text-center my-5">Overview</h2>
         <div className="mt-5 container d-flex flex-wrap-reverse justify-content-center justify-content-lg-between align-items-center">
           <div className="hero-left">
@@ -36,7 +36,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section>
+      <section id="services">
         <h2 className="text-center my-5">Services</h2>
         <div className="d-flex justify-content-center">
           <div className="mx-5 services">
