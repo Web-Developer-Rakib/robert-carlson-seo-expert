@@ -9,6 +9,7 @@ import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
 import NotFound from "./Components/NotFound/NotFound";
 import Register from "./Components/Register/Register";
+import RegistrationSuccess from "./Components/RegistrationSuccess/RegistrationSuccess";
 import RequireAuth from "./Hooks/RequireAuth";
 
 function App() {
@@ -28,6 +29,10 @@ function App() {
               <CheckOut></CheckOut>
             </RequireAuth>
           }
+        ></Route>
+        <Route
+          path="reg-success"
+          element={<RegistrationSuccess></RegistrationSuccess>}
         ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

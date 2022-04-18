@@ -8,28 +8,34 @@ import GoogleIcon from "../../Images/google.jpg";
 import "./Login.css";
 
 const Login = () => {
-  const { setUseDetails, handleGoogleSignIn } = UseFirebase();
+  const { setUseDetails, handleGoogleSignIn, googleErrorTxt } = UseFirebase();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorTxt, setErrorTxt] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+
   const handleLogin = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         setUseDetails(user);
+
         navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
-        setErrorTxt(errorMessage);
+        if (errorMessage === "Firebase: Error (auth/user-not-found).") {
+          setErrorTxt("User not found.");
+        }
       });
   };
   return (
     <div className="login">
+      <h3 className="text-center text-danger">{errorTxt}</h3>
+      <h3 className="text-center text-danger">{googleErrorTxt}</h3>
       <Form className="w-50 mx-auto">
         <h1 className="py-4">Login</h1>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -78,7 +84,6 @@ const Login = () => {
           {" "}
           <img src={GoogleIcon} height={30} alt="" /> LOGIN IN WITH GOOGLE
         </button>
-        <h2>{errorTxt}</h2>
       </div>
     </div>
   );

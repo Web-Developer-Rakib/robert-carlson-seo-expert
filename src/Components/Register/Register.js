@@ -1,21 +1,20 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../Firebase_init";
 import UseFirebase from "../../Hooks/UseFirebase";
 import GoogleIcon from "../../Images/google.jpg";
 import "./Register.css";
 
 const Register = () => {
-  const { userDetails, setUseDetails, googleErrorTxt, handleGoogleSignIn } =
-    UseFirebase();
+  const { setUseDetails, googleErrorTxt, handleGoogleSignIn } = UseFirebase();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passError, setPassError] = useState("");
   const [errorTxt, setErrorTxt] = useState("");
-  const [checked, setChecked] = useState(false);
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -27,16 +26,19 @@ const Register = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         setUseDetails(user);
+        navigate("/reg-success");
       })
       .catch((error) => {
         const errorMessage = error.message;
-        if (errorMessage === "Error (auth/email-already-in-use).") {
-          setErrorTxt("This email already in use");
+        if (errorMessage === "Firebase: Error (auth/email-already-in-use).") {
+          setErrorTxt("This email already in use.");
         }
       });
   };
   return (
     <div className="register">
+      <h3 className="text-center text-danger">{errorTxt}</h3>
+      <h3 className="text-center text-danger">{googleErrorTxt}</h3>
       <Form className="w-50 mx-auto">
         <h1 className="py-4">Register</h1>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -66,19 +68,10 @@ const Register = () => {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check
-            type="checkbox"
-            label="Accept terms and condition."
-            onClick={(e) => setChecked(e.target.checked)}
-          />
-        </Form.Group>
         <b>
           Already have an account? <Link to="/login">Login</Link>
         </b>
         <h5 className="text-danger my-3">{passError}</h5>
-        <h2>{errorTxt}</h2>
-        <h2>{userDetails?.email}</h2>
         <div className="d-flex flex-column align-items-center">
           <button
             type="submit"

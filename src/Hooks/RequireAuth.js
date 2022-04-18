@@ -3,7 +3,6 @@ import UseFirebase from "./UseFirebase";
 
 const RequireAuth = ({ children }) => {
   const { userDetails } = UseFirebase();
-  console.log(userDetails);
 
   const location = useLocation();
   if (!userDetails) {

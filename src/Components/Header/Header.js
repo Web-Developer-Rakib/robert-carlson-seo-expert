@@ -8,7 +8,6 @@ import "./Header.css";
 
 const Header = () => {
   const { handleSignOut, signOutTxt, userDetails } = UseFirebase();
-  console.log(userDetails);
   return (
     <Navbar
       collapseOnSelect
