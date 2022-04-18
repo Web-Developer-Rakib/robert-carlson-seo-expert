@@ -1,6 +1,6 @@
 # Robert Carlson-SEO
 
-## [Live site link](https://github.com/facebook/create-react-app).
+## [Live site link](https://robert-carlson-seo.web.app).
 
 ### Features and functionality
 

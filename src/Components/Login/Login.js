@@ -32,7 +32,7 @@ const Login = () => {
       .catch((error) => {
         const errorMessage = error.message;
         if (errorMessage === "Firebase: Error (auth/user-not-found).") {
-          setErrorTxt("User not found.");
+          setErrorTxt("Invalid Email or Password.");
         }
       });
   };
@@ -40,7 +40,7 @@ const Login = () => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
         setErrorTxt("");
-        toast.success("Reset mail sent");
+        toast.success("Password reset email sent.");
       })
       .catch((error) => {
         const errorMessage = error.message;

@@ -4,9 +4,9 @@ import "./AboutMe.css";
 
 const AboutMe = () => {
   return (
-    <section className="about-me-section mb-5">
+    <section className="about-me-section">
       <div className="d-flex flex-column flex-lg-row align-items-center flex-wrap container w-100">
-        <div className="w-50">
+        <div className="w-50 d-flex justify-content-center justify-content-lg-between">
           <img src={RakibImg} alt="" className="rakib-img" />
         </div>
         <div className="w-50">
