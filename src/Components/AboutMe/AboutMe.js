@@ -21,7 +21,7 @@ const AboutMe = () => {
             and focus to learning. Now my dream is coming true.
             <br />
             <br />
-            <b>"I don't know, Why I am doing it. But, I will do it. :)"</b>
+            <b>"The goal of my life is, LEARNING, EARNING, INVESTMENT"</b>
           </p>
         </div>
       </div>
