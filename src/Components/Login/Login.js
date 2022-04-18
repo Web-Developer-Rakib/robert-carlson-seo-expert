@@ -5,6 +5,7 @@ import {
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../Firebase_init";
 import UseFirebase from "../../Hooks/UseFirebase";
 import GoogleIcon from "../../Images/google.jpg";
@@ -25,7 +26,7 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         setUseDetails(user);
-
+        toast.success("Login successful.");
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -38,11 +39,14 @@ const Login = () => {
   const handleResetPassword = () => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        console.log("Sent");
+        setErrorTxt("");
+        toast.success("Reset mail sent");
       })
       .catch((error) => {
         const errorMessage = error.message;
-        setErrorTxt(errorMessage);
+        if (errorMessage === "Firebase: Error (auth/missing-email).") {
+          setErrorTxt("Please enter your email address to reset password.");
+        }
       });
   };
   return (
@@ -74,10 +78,17 @@ const Login = () => {
           />
         </Form.Group>
         <b>
-          New to this site? <Link to="/register">Register</Link>
+          New to this site?{" "}
+          <Link className="register-option" to="/register">
+            Register
+          </Link>
         </b>
+        <br />
         <b>
-          Fogot password? <span onClick={handleResetPassword}>Reset now</span>
+          Fogot password?{" "}
+          <span className="reset-pass" onClick={handleResetPassword}>
+            Reset now
+          </span>
         </b>
 
         <div className="d-flex flex-column align-items-center">

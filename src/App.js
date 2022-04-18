@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import AboutMe from "./Components/AboutMe/AboutMe";
 import Blogs from "./Components/Blogs/Blogs";

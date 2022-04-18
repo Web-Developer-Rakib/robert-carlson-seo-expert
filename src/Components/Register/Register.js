@@ -5,6 +5,7 @@ import {
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../Firebase_init";
 import UseFirebase from "../../Hooks/UseFirebase";
 import GoogleIcon from "../../Images/google.jpg";
@@ -21,7 +22,7 @@ const Register = () => {
 
   const verifyEmail = () => {
     sendEmailVerification(auth.currentUser).then(() => {
-      console.log("Email verification sent.");
+      toast.success("A verification mail has been sent.");
     });
   };
 
@@ -80,7 +81,10 @@ const Register = () => {
           />
         </Form.Group>
         <b>
-          Already have an account? <Link to="/login">Login</Link>
+          Already have an account?{" "}
+          <Link className="login-option" to="/login">
+            Login
+          </Link>
         </b>
         <h5 className="text-danger my-3">{passError}</h5>
         <div className="d-flex flex-column align-items-center">

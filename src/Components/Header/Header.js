@@ -2,12 +2,13 @@ import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { ToastContainer } from "react-toastify";
 import UseFirebase from "../../Hooks/UseFirebase";
 import Logo from "../../Images/logo.png";
 import "./Header.css";
 
 const Header = () => {
-  const { handleSignOut, signOutTxt, userDetails } = UseFirebase();
+  const { handleSignOut, userDetails } = UseFirebase();
   return (
     <Navbar
       collapseOnSelect
@@ -54,6 +55,7 @@ const Header = () => {
           )}
         </Navbar.Collapse>
       </Container>
+      <ToastContainer></ToastContainer>
     </Navbar>
   );
 };

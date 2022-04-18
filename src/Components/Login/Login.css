@@ -40,3 +40,14 @@
   border-radius: 50%;
   margin-right: 10px;
 }
+.register-option {
+  color: rgb(14, 153, 130);
+  text-decoration: none;
+}
+.reset-pass {
+  color: rgb(14, 153, 130);
+  cursor: pointer;
+}
+.reset-pass:hover {
+  color: rgb(44, 44, 231);
+}

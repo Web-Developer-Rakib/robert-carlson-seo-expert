@@ -40,3 +40,7 @@
   border-radius: 50%;
   margin-right: 10px;
 }
+.login-option {
+  color: rgb(14, 153, 130);
+  text-decoration: none;
+}

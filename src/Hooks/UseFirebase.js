@@ -6,12 +6,12 @@ import {
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../Firebase_init";
 
 const UseFirebase = () => {
   const [userDetails, setUseDetails] = useState({});
   const [googleErrorTxt, setGoogleErrorTxt] = useState("");
-  const [signOutTxt, setSignOutTxt] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -21,6 +21,7 @@ const UseFirebase = () => {
       .then((result) => {
         const user = result.user;
         setUseDetails(user);
+        toast.success("Login successful.");
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -31,9 +32,11 @@ const UseFirebase = () => {
   };
   const handleSignOut = () => {
     signOut(auth)
-      .then(() => {})
+      .then(() => {
+        toast.success("Log out successful.");
+      })
       .catch((error) => {
-        setSignOutTxt(error.message);
+        toast.warn(error.message);
       });
   };
 
@@ -49,7 +52,6 @@ const UseFirebase = () => {
     googleErrorTxt,
     handleGoogleSignIn,
     handleSignOut,
-    signOutTxt,
   };
 };
 
