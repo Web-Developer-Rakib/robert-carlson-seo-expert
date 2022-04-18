@@ -44,3 +44,8 @@
   color: rgb(14, 153, 130);
   text-decoration: none;
 }
+@media only screen and (max-width: 400px) {
+  .register-line {
+    width: 80px;
+  }
+}
