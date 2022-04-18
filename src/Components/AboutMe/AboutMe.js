@@ -9,7 +9,7 @@ const AboutMe = () => {
         <div className="w-50 d-flex justify-content-center justify-content-lg-between">
           <img src={RakibImg} alt="" className="rakib-img" />
         </div>
-        <div className="w-50">
+        <div className="about-txt">
           <h1>About me</h1>
           <p>
             I am Rakibul Hassan. I have a big dream to become a successful

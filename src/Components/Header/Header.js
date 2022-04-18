@@ -13,7 +13,7 @@ const Header = () => {
     <Navbar
       collapseOnSelect
       expand="lg"
-      className="nav-color fixed-top"
+      className="nav-color fixed-top responsive-header"
       variant="light"
     >
       <Container>
