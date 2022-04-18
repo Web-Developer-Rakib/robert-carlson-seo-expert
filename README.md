@@ -10,9 +10,9 @@ This website is representing the services of an SEO expert. By the help of this 
 
 #### The technologies I have used in this website:
 
--React bootstrap
--React router dom
--React router hash link
--Firebase authentication system.
--React toastify
--DotEnv package
+- React bootstrap
+- React router dom
+- React router hash link
+- Firebase authentication system.
+- React toastify
+- DotEnv package
