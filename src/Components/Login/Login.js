@@ -1,4 +1,7 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -32,6 +35,16 @@ const Login = () => {
         }
       });
   };
+  const handleResetPassword = () => {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        console.log("Sent");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setErrorTxt(errorMessage);
+      });
+  };
   return (
     <div className="login">
       <h3 className="text-center text-danger">{errorTxt}</h3>
@@ -62,6 +75,9 @@ const Login = () => {
         </Form.Group>
         <b>
           New to this site? <Link to="/register">Register</Link>
+        </b>
+        <b>
+          Fogot password? <span onClick={handleResetPassword}>Reset now</span>
         </b>
 
         <div className="d-flex flex-column align-items-center">

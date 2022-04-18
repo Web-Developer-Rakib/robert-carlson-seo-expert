@@ -1,4 +1,7 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,6 +19,12 @@ const Register = () => {
   const [errorTxt, setErrorTxt] = useState("");
   const navigate = useNavigate();
 
+  const verifyEmail = () => {
+    sendEmailVerification(auth.currentUser).then(() => {
+      console.log("Email verification sent.");
+    });
+  };
+
   const handleRegister = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -27,6 +36,7 @@ const Register = () => {
         const user = userCredential.user;
         setUseDetails(user);
         navigate("/reg-success");
+        verifyEmail();
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -35,6 +45,7 @@ const Register = () => {
         }
       });
   };
+
   return (
     <div className="register">
       <h3 className="text-center text-danger">{errorTxt}</h3>

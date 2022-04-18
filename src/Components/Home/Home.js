@@ -1,12 +1,12 @@
 import React from "react";
-import useFetch from "../../Hooks/useFetch";
+import UseFetch from "../../Hooks/UseFetch";
 import HeroImg from "../../Images/carlson.jpg";
 import Banner from "../Banner/Banner";
 import Card from "../Card/Card";
 import "./Home.css";
 
 const Home = () => {
-  const [services] = useFetch();
+  const [services] = UseFetch();
   return (
     <div className="home-top" id="home">
       <Banner></Banner>
