@@ -1,7 +1,6 @@
 import React from "react";
 import UseFetch from "../../Hooks/UseFetch";
 import HeroImg from "../../Images/carlson.jpg";
-import Banner from "../Banner/Banner";
 import Card from "../Card/Card";
 import "./Home.css";
 
@@ -9,9 +8,7 @@ const Home = () => {
   const [services] = UseFetch();
   return (
     <div className="home-top" id="home">
-      <Banner></Banner>
       <section id="overview">
-        <h2 className="text-center my-5">Overview</h2>
         <div className="mt-5 container d-flex flex-wrap-reverse justify-content-center justify-content-lg-between align-items-center">
           <div className="hero-left">
             <h1 className="mt-lg-0 mt-5">
