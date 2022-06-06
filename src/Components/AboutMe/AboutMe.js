@@ -10,18 +10,13 @@ const AboutMe = () => {
           <img src={RakibImg} alt="" className="rakib-img" />
         </div>
         <div className="about-txt">
-          <h1>About me</h1>
+          <h1>About Developer</h1>
           <p>
-            I am Rakibul Hassan. I have a big dream to become a successful
-            programmer/web developer. I am working hard to reach my goal. I have
-            sacrificed too many favorite things for my current goal. I was a
-            project/marketing manager of a software development company. There
-            was a big developer community. Since then, I fall in love with
-            programming. And decided to learn programming. So, I quite my job
-            and focus to learning. Now my dream is coming true.
-            <br />
-            <br />
-            <b>"The goal of my life is, LEARNING, EARNING, INVESTMENT"</b>
+            Rakibul Hasan is solution-oriented and problem solver. Proven track
+            record developing various web sites. Strong knowledge of MERN stack
+            with re-usability and ease of maintenance. Highly proficient in
+            JavaScript, as well as quality coding and excellent debugging
+            skills.
           </p>
         </div>
       </div>
